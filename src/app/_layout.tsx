@@ -14,6 +14,10 @@ if (!publishableKey) {
 }
 
 SplashScreen.preventAutoHideAsync();
+SplashScreen.setOptions({
+  duration: 240,
+  fade: true,
+});
 
 export default function RootLayout() {
   return (
@@ -44,18 +48,18 @@ function RootNavigator() {
   if (!ready) return null;
 
   return (
-      <ThemeProvider value={DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="index" options={{ headerShown: false }} />
-          <Stack.Protected guard={!isSignedIn}>
-            <Stack.Screen name="onboarding" options={{ headerShown: false }} />
-            <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-          </Stack.Protected>
-          <Stack.Protected guard={Boolean(isSignedIn)}>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          </Stack.Protected>
-          <Stack.Screen name="design-system" options={{ headerShown: false }} />
-        </Stack>
-      </ThemeProvider>
+    <ThemeProvider value={DefaultTheme}>
+      <Stack>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Protected guard={!isSignedIn}>
+          <Stack.Screen name="onboarding" options={{ headerShown: false }} />
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        </Stack.Protected>
+        <Stack.Protected guard={Boolean(isSignedIn)}>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        </Stack.Protected>
+        <Stack.Screen name="design-system" options={{ headerShown: false }} />
+      </Stack>
+    </ThemeProvider>
   );
 }

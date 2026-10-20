@@ -8,7 +8,8 @@
     "scheme": "bard",
     "userInterfaceStyle": "light",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.anonymous.bard"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,9 +29,10 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "backgroundColor": "#0B0B1A",
+          "image": "./assets/images/brand/bard-splash.png",
+          "imageWidth": 240,
+          "resizeMode": "contain"
         }
       ],
       "@clerk/expo",
