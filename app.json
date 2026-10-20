@@ -8,8 +8,7 @@
     "scheme": "bard",
     "userInterfaceStyle": "light",
     "ios": {
-      "icon": "./assets/expo.icon",
-      "bundleIdentifier": "com.anonymous.bard"
+      "icon": "./assets/expo.icon"
     },
     "android": {
       "adaptiveIcon": {

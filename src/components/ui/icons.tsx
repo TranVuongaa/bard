@@ -41,6 +41,13 @@ const symbols = {
   hotTub: { ios: 'bubbles.and.sparkles.fill', android: 'hot_tub', web: 'hot_tub' },
   list: { ios: 'list.bullet', android: 'list', web: 'list' },
   map: { ios: 'map', android: 'map', web: 'map' },
+  sparkles: { ios: 'sparkles', android: 'auto_awesome', web: 'auto_awesome' },
+  arrowUpRight: { ios: 'arrow.up.right', android: 'north_east', web: 'north_east' },
+  cabin: { ios: 'tree.fill', android: 'forest', web: 'forest' },
+  beach: { ios: 'water.waves', android: 'waves', web: 'waves' },
+  city: { ios: 'building.2.fill', android: 'apartment', web: 'apartment' },
+  villa: { ios: 'sun.max.fill', android: 'villa', web: 'villa' },
+  wave: { ios: 'hand.wave.fill', android: 'waving_hand', web: 'waving_hand' },
 } as const satisfies Record<string, ComponentProps<typeof SymbolView>['name']>;
 
 const toneVariables = {

@@ -14,10 +14,12 @@
   --spacing-logo-standard: 144px;
   --spacing-logo-large: 192px;
   --aspect-logo: 2 / 1;
+  --aspect-stay-card: 16 / 11;
 
   --color-accent: #ffc629;
   --color-accent-pressed: #efb313;
   --color-lavender: #c9b4fe;
+  --color-image-placeholder: #d9dde5;
   --color-ink: #0b0b1a;
   --color-muted: #6b7280;
   --color-surface: #ffffff;
@@ -46,6 +48,8 @@
   --text-display--line-height: 1;
   --text-heading: 32px;
   --text-heading--line-height: 1.2;
+  --text-home-hero: 40px;
+  --text-home-hero--line-height: 1;
   --text-title: 28px;
   --text-title--line-height: 1.2;
   --text-card-title: 20px;
@@ -58,6 +62,8 @@
   --text-caption--line-height: 1.4;
   --text-label: 12px;
   --text-label--line-height: 1.35;
+  --text-eyebrow: 18px;
+  --text-eyebrow--line-height: 1.25;
 
   --radius-sm: 8px;
   --radius-md: 12px;

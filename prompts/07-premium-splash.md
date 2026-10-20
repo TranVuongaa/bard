@@ -1,6 +1,6 @@
 # Premium native splash screen
 
-Status: approved
+Status: done
 
 ## Goal
 
@@ -81,4 +81,27 @@ steps. Add `## Result` and set `Status: done` only after required verification.
 - https://docs.expo.dev/versions/v58.0.0/sdk/splash-screen/
 - https://docs.expo.dev/develop/user-interface/splash-screen-and-app-icon/
 - Local `expo-design-system` skill.
+
+## Result
+
+- Replaced the Expo placeholder launch treatment with a 1024 × 1024 transparent
+  light/yellow Bard wordmark on the ink background. The config uses contain mode
+  and a 240 px image box.
+- Added Expo's built-in 240 ms iOS fade without changing the existing Clerk/font
+  readiness gate.
+- The final asset was made with the built-in image-generation tool in two edit
+  passes: recolor only the approved wordmark's dark lettering to `#F4F5F7` while
+  keeping the yellow swoosh and geometry unchanged, then center that unchanged
+  result at 80% width on a square transparent canvas. The square output was
+  normalized from 1254 px to Expo's recommended 1024 px.
+- `npx expo lint`, `npx tsc --noEmit`, `git diff --check`, and resolved Expo config
+  checks pass. A local Release simulator build compiled and installed successfully;
+  the generated `SplashScreen.storyboard` compiled with the new asset.
+- The post-launch destination was captured at `/tmp/bard-premium-splash.png`, and
+  the cold launch was recorded at `/tmp/bard-premium-splash.mov`. The launch screen
+  itself cleared too quickly for the available screenshot tooling to isolate a
+  clean frame, so its 240 ms fade was not visually timed frame by frame.
+- Expo Prebuild generated the ignored `ios/` directory for verification and
+  installed CocoaPods 1.17.0 locally. Its unrelated tracked script and temporary
+  bundle-identifier edits were removed from the final diff.
 

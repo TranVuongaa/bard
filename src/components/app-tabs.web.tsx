@@ -18,7 +18,16 @@ export default function AppTabs() {
       <TabList asChild>
         <CustomTabList>
           <TabTrigger name="home" href="/home" asChild>
-            <TabButton>Home</TabButton>
+            <TabButton icon="home">Home</TabButton>
+          </TabTrigger>
+          <TabTrigger name="search" href="/search" asChild>
+            <TabButton icon="search">Search</TabButton>
+          </TabTrigger>
+          <TabTrigger name="trips" href="/trips" asChild>
+            <TabButton icon="calendar">Trips</TabButton>
+          </TabTrigger>
+          <TabTrigger name="profile" href="/profile" asChild>
+            <TabButton icon="profile">Profile</TabButton>
           </TabTrigger>
         </CustomTabList>
       </TabList>
@@ -26,13 +35,19 @@ export default function AppTabs() {
   );
 }
 
-function TabButton({ children, isFocused, ref, ...props }: TabTriggerSlotProps) {
+function TabButton({
+  children,
+  icon,
+  isFocused,
+  ref,
+  ...props
+}: TabTriggerSlotProps & { icon: 'home' | 'search' | 'calendar' | 'profile' }) {
   return (
     <Pressable
       {...props}
       ref={ref as Ref<ComponentRef<typeof Pressable>>}
-      className="min-h-12 min-w-24 items-center justify-center rounded-full px-5 active:opacity-70">
-      <Icon name="home" tone={isFocused ? 'primary' : 'secondary'} size={22} />
+      className="min-h-12 flex-1 items-center justify-center rounded-full px-2 active:opacity-70">
+      <Icon name={icon} tone={isFocused ? 'primary' : 'secondary'} size={22} />
       <Text variant="label" tone={isFocused ? 'primary' : 'secondary'}>
         {children}
       </Text>
@@ -43,7 +58,7 @@ function TabButton({ children, isFocused, ref, ...props }: TabTriggerSlotProps) 
 function CustomTabList(props: TabListProps) {
   return (
     <View className="absolute bottom-5 w-full flex-row justify-center px-5" {...props}>
-      <View className="rounded-full border border-border bg-glass p-1 shadow-glass">
+      <View className="w-full flex-row rounded-full border border-border bg-glass p-1 shadow-glass">
         {props.children}
       </View>
     </View>

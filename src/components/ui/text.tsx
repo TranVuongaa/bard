@@ -6,6 +6,7 @@ const variantClasses = {
   wordmark: 'font-jakarta-extrabold text-wordmark',
   display: 'font-jakarta-extrabold text-display',
   heading: 'font-jakarta-bold text-heading',
+  homeHero: 'font-jakarta-extrabold text-home-hero',
   title: 'font-jakarta-bold text-title',
   cardTitle: 'font-jakarta-bold text-card-title',
   body: 'font-jakarta-regular text-body',
@@ -13,6 +14,7 @@ const variantClasses = {
   button: 'font-jakarta-semibold text-button',
   caption: 'font-jakarta-medium text-caption',
   label: 'font-jakarta-medium text-label',
+  eyebrow: 'font-jakarta-semibold text-eyebrow',
 } as const;
 
 const toneClasses = {
