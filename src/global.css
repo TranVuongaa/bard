@@ -30,13 +30,15 @@
   --color-discount-soft: #ffe5ed;
   --color-scrim: rgba(11, 11, 26, 0.4);
 
-  --font-jakarta-regular: "PlusJakartaSans-Regular";
-  --font-jakarta-medium: "PlusJakartaSans-Medium";
-  --font-jakarta-semibold: "PlusJakartaSans-SemiBold";
-  --font-jakarta-bold: "PlusJakartaSans-Bold";
-  --font-jakarta-extrabold: "PlusJakartaSans-ExtraBold";
-
   --text-display: 56px;
+  --text-onboarding-heading: 36px;
+  --text-onboarding-heading--line-height: 1.05;
+  --text-onboarding-body: 16px;
+  --text-onboarding-body--line-height: 1.3;
+  --text-wordmark: 48px;
+  --text-wordmark--line-height: 1;
+  --radius-onboarding-left: 48px;
+  --radius-onboarding-right: 64px;
   --text-display--line-height: 1;
   --text-heading: 32px;
   --text-heading--line-height: 1.2;
@@ -63,6 +65,21 @@
   --shadow-card: 0 2px 12px rgba(11, 11, 26, 0.06);
   --shadow-raised: 0 8px 24px rgba(11, 11, 26, 0.1);
   --shadow-glass: 0 12px 32px rgba(11, 11, 26, 0.14);
+}
+
+/* Resolve font aliases at build time so native fontFamily receives a string. */
+@theme inline {
+  --font-jakarta-regular: "PlusJakartaSans-Regular";
+  --font-jakarta-medium: "PlusJakartaSans-Medium";
+  --font-jakarta-semibold: "PlusJakartaSans-SemiBold";
+  --font-jakarta-bold: "PlusJakartaSans-Bold";
+  --font-jakarta-extrabold: "PlusJakartaSans-ExtraBold";
+}
+
+@utility onboarding-curve {
+  border-top-left-radius: var(--radius-onboarding-left);
+  border-top-right-radius: var(--radius-onboarding-right);
+  transform: skewY(5deg);
 }
 
 @utility text-input {

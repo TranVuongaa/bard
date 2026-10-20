@@ -1,7 +1,7 @@
 import { SymbolView } from 'expo-symbols';
 import { styled } from 'nativewind';
 import type { ComponentProps } from 'react';
-import { type StyleProp, View, type ViewStyle } from 'react-native';
+import { Platform, type StyleProp, View, type ViewStyle } from 'react-native';
 
 const StyledSymbolView = styled(SymbolView, {
   className: {
@@ -71,7 +71,15 @@ export function Icon({
 }) {
   return (
     <View className={className} style={[{ width: size, height: size }, style]}>
-      <StyledSymbolView className={toneVariables[tone]} name={symbols[name]} size={size} />
+      {Platform.OS === 'web' ? (
+        <SymbolView
+          tintColor={`var(--color-${toneVariables[tone].replace('text-', '')})`}
+          name={symbols[name]}
+          size={size}
+        />
+      ) : (
+        <StyledSymbolView className={toneVariables[tone]} name={symbols[name]} size={size} />
+      )}
     </View>
   );
 }

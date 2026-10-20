@@ -1,6 +1,9 @@
 import { Text as NativeText, type TextProps as NativeTextProps } from 'react-native';
 
 const variantClasses = {
+  onboardingHeading: 'font-jakarta-extrabold text-onboarding-heading',
+  onboardingBody: 'font-jakarta-medium text-onboarding-body',
+  wordmark: 'font-jakarta-extrabold text-wordmark',
   display: 'font-jakarta-extrabold text-display',
   heading: 'font-jakarta-bold text-heading',
   title: 'font-jakarta-bold text-title',
