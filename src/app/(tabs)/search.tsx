@@ -4,7 +4,7 @@ import { ScrollView, View } from 'react-native';
 import Animated, { FadeInDown, ReduceMotion } from 'react-native-reanimated';
 
 import { LocalSearchField, PropertyList } from '@/components/properties';
-import { Text } from '@/components/ui';
+import { SafeAreaScreen, Text } from '@/components/ui';
 import { rankProperties } from '@/lib/property-search';
 import { motion } from '@/theme';
 
@@ -31,37 +31,39 @@ function SearchContent({ routeQuery }: { routeQuery: string }) {
   }
 
   return (
-    <ScrollView
-      className="flex-1 bg-surface"
-      contentContainerClassName="gap-6 px-5 pb-32 pt-5"
-      contentInsetAdjustmentBehavior="automatic"
-      keyboardDismissMode="on-drag"
-      keyboardShouldPersistTaps="handled"
-      showsVerticalScrollIndicator={false}>
-      <View className="gap-2">
-        <Text variant="heading">Search stays</Text>
-        <Text tone="secondary">Tell Bard what would make the trip feel right.</Text>
-      </View>
-
-      <LocalSearchField
-        autoFocus={!routeQuery}
-        value={draft}
-        onChangeText={setDraft}
-        onSubmit={submitSearch}
-      />
-
-      <Animated.View key={routeQuery || 'all'} entering={SEARCH_RESULTS_ENTER} className="gap-4">
-        <View className="flex-row items-end justify-between gap-4">
-          <Text variant="cardTitle" className="flex-1">
-            {routeQuery ? 'Best matches' : 'Explore all stays'}
-          </Text>
-          <Text variant="caption" tone="secondary">
-            {results.length} {results.length === 1 ? 'stay' : 'stays'}
-          </Text>
+    <SafeAreaScreen className="bg-surface">
+      <ScrollView
+        className="flex-1 bg-surface"
+        contentContainerClassName="gap-6 px-5 pb-32 pt-5"
+        contentInsetAdjustmentBehavior="automatic"
+        keyboardDismissMode="on-drag"
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}>
+        <View className="gap-2">
+          <Text variant="heading">Search stays</Text>
+          <Text tone="secondary">Tell Bard what would make the trip feel right.</Text>
         </View>
-        <PropertyList properties={results} onClear={routeQuery ? clearSearch : undefined} />
-      </Animated.View>
-    </ScrollView>
+
+        <LocalSearchField
+          autoFocus={!routeQuery}
+          value={draft}
+          onChangeText={setDraft}
+          onSubmit={submitSearch}
+        />
+
+        <Animated.View key={routeQuery || 'all'} entering={SEARCH_RESULTS_ENTER} className="gap-4">
+          <View className="flex-row items-end justify-between gap-4">
+            <Text variant="cardTitle" className="flex-1">
+              {routeQuery ? 'Best matches' : 'Explore all stays'}
+            </Text>
+            <Text variant="caption" tone="secondary">
+              {results.length} {results.length === 1 ? 'stay' : 'stays'}
+            </Text>
+          </View>
+          <PropertyList properties={results} onClear={routeQuery ? clearSearch : undefined} />
+        </Animated.View>
+      </ScrollView>
+    </SafeAreaScreen>
   );
 }
 

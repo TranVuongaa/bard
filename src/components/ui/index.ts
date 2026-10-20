@@ -6,6 +6,7 @@ export { Chip } from './chip';
 export { Icon, type IconName, type IconTone } from './icons';
 export { IconButton } from './icon-button';
 export { PressableScale } from './pressable-scale';
+export { SafeAreaScreen } from './safe-area-screen';
 export { SegmentedControl, type Segment } from './segmented-control';
 export { Stepper } from './stepper';
 export { Text, type TextProps, type TextTone, type TextVariant } from './text';

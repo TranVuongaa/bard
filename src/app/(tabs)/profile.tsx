@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 
 import { ProfileAvatar } from '@/components/properties';
-import { Alert, Button, Text } from '@/components/ui';
+import { Alert, Button, SafeAreaScreen, Text } from '@/components/ui';
 import { authError } from '@/lib/auth/errors';
 
 export default function ProfileScreen() {
@@ -26,39 +26,41 @@ export default function ProfileScreen() {
   }
 
   return (
-    <ScrollView
-      className="flex-1 bg-surface"
-      contentContainerClassName="flex-grow gap-8 px-5 pb-32 pt-8"
-      contentInsetAdjustmentBehavior="always">
-      <View className="items-center gap-4">
-        <ProfileAvatar
-          imageUrl={user?.imageUrl}
-          name={user?.fullName || user?.firstName}
-        />
-        <View className="items-center gap-1">
-          <Text variant="title">{user?.fullName || user?.firstName || 'Bard guest'}</Text>
-          <Text
-            tone="secondary"
-            className="w-full text-center"
-            ellipsizeMode="middle"
-            numberOfLines={1}>
-            {user?.primaryEmailAddress?.emailAddress}
-          </Text>
+    <SafeAreaScreen className="bg-surface">
+      <ScrollView
+        className="flex-1 bg-surface"
+        contentContainerClassName="flex-grow gap-8 px-5 pb-32 pt-8"
+        contentInsetAdjustmentBehavior="always">
+        <View className="items-center gap-4">
+          <ProfileAvatar
+            imageUrl={user?.imageUrl}
+            name={user?.fullName || user?.firstName}
+          />
+          <View className="items-center gap-1">
+            <Text variant="title">{user?.fullName || user?.firstName || 'Bard guest'}</Text>
+            <Text
+              tone="secondary"
+              className="w-full text-center"
+              ellipsizeMode="middle"
+              numberOfLines={1}>
+              {user?.primaryEmailAddress?.emailAddress}
+            </Text>
+          </View>
         </View>
-      </View>
 
-      {error ? <Alert message={error} variant="danger" onDismiss={() => setError('')} /> : null}
+        {error ? <Alert message={error} variant="danger" onDismiss={() => setError('')} /> : null}
 
-      <View className="mb-8 mt-auto">
-        <Button
-          label="Sign out"
-          variant="secondary"
-          loading={busy}
-          className="w-full"
-          onPress={logout}
-        />
-      </View>
-    </ScrollView>
+        <View className="mb-8 mt-auto">
+          <Button
+            label="Sign out"
+            variant="secondary"
+            loading={busy}
+            className="w-full"
+            onPress={logout}
+          />
+        </View>
+      </ScrollView>
+    </SafeAreaScreen>
   );
 }
 
