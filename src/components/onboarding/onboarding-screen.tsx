@@ -8,7 +8,7 @@ import { useReducedMotion } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { GoogleButton } from '@/components/auth/google-button';
-import { Icon, PressableScale, Text } from '@/components/ui';
+import { BrandLogo, Icon, PressableScale, Text } from '@/components/ui';
 import { motion } from '@/theme';
 
 import { slides } from './slides';
@@ -97,7 +97,7 @@ export default function OnboardingScreen() {
           <View
             className="flex-row items-center justify-between px-6 pt-3"
             style={{ marginTop: insets.top }}>
-            <Text variant="wordmark" accessibilityLabel="Bard">bard</Text>
+            <BrandLogo className="rounded-md bg-glass" />
             <PressableScale
               accessibilityRole="button"
               accessibilityLabel="Skip onboarding"

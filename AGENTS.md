@@ -80,6 +80,8 @@ Designs are attached in the chat. Screens must match them exactly: layout, spaci
 
 ## Design system
 
+- Brand identity uses the approved painted wordmark at `assets/images/brand/bard-wordmark.png` through `BrandLogo` (`src/components/ui/brand-logo.tsx`), with compact/standard/large widths and a 2:1 aspect ratio in `global.css`. Onboarding uses a glass background for contrast; auth and the design-system preview show the transparent asset directly. Do not recreate the logo with text.
+
 - Onboarding reserves the tallest slide copy at the current width and font scale so its white panel stays aligned. Its persistent Expo Image view cross-dissolves sources over `motion.base` (240 ms), prefetches the photos, and switches immediately with Reduce Motion.
 - Tokens live only in `src/global.css` `@theme` (colors, 4px `--spacing`, fonts, `--text-*` ramp, radius, shadows); Tailwind's default palette, ramp, radii and shadows are cleared. JS-only values (motion) live in `src/theme/`. No hex, font size, or arbitrary `[..]` class outside `global.css`.
 - The core light palette is accent `#FFC629`, lavender `#C9B4FE`, ink `#0B0B1A`, muted `#6B7280`, surface `#FFFFFF`, canvas `#F4F5F7` and border `#E5E7EB`.

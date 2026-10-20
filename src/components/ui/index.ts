@@ -1,5 +1,6 @@
 export { Alert } from './alert';
 export { Badge } from './badge';
+export { BrandLogo } from './brand-logo';
 export { Button, type ButtonProps } from './button';
 export { Chip } from './chip';
 export { Icon, type IconName, type IconTone } from './icons';

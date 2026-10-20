@@ -10,6 +10,10 @@
   --radius-*: initial;
   --shadow-*: initial;
   --spacing: 4px;
+  --spacing-logo-compact: 112px;
+  --spacing-logo-standard: 144px;
+  --spacing-logo-large: 192px;
+  --aspect-logo: 2 / 1;
 
   --color-accent: #ffc629;
   --color-accent-pressed: #efb313;

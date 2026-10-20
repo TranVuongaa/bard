@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Button, PressableScale, Text, TextField } from '@/components/ui';
+import { BrandLogo, Button, PressableScale, Text, TextField } from '@/components/ui';
 
 import { GoogleButton } from './google-button';
 
@@ -43,7 +43,7 @@ export function AuthForm({ mode }: { mode: 'sign-up' | 'sign-in' }) {
             contentClassName="min-h-11 justify-center">
             <Text variant="caption">Back</Text>
           </PressableScale>
-          <Text variant="wordmark">bard</Text>
+          <BrandLogo />
           <View className="gap-3">
             <Text variant="heading" accessibilityRole="header">{signingUp ? 'Your next chapter\nstarts here' : 'Welcome back'}</Text>
             <Text tone="secondary">{signingUp ? 'Create an account to find your kind of stay.' : 'Sign in and find your next getaway.'}</Text>

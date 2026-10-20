@@ -7,6 +7,7 @@ import { ScrollView, type ScrollViewInstance, Switch, View } from 'react-native'
 import {
   Alert,
   Badge,
+  BrandLogo,
   Button,
   Chip,
   Icon,
@@ -121,7 +122,7 @@ export function DesignSystemGallery({ initialOffset = 0 }: { initialOffset?: num
       contentInsetAdjustmentBehavior="automatic"
       onContentSizeChange={() => setContentReady(true)}>
       <View className="gap-1 px-1 pb-2">
-        <Text variant="display">bard</Text>
+        <BrandLogo size="large" />
         <Text variant="body" tone="secondary">
           Find unforgettable stays for every kind of trip.
         </Text>
