@@ -8,6 +8,7 @@ import { useReducedMotion } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { GoogleButton } from '@/components/auth/google-button';
+import { useSocialAuth } from '@/hooks/use-social-auth';
 import { BrandLogo, Icon, PressableScale, Text } from '@/components/ui';
 import { motion } from '@/theme';
 
@@ -57,6 +58,7 @@ function SizedSlideCopy({ page }: { page: number }) {
 
 export default function OnboardingScreen() {
   const router = useRouter();
+  const social = useSocialAuth();
   const insets = useSafeAreaInsets();
   const [page, setPage] = useState(0);
   const [failedImages, setFailedImages] = useState<ReadonlySet<string>>(() => new Set());
@@ -141,7 +143,8 @@ export default function OnboardingScreen() {
               <Text variant="button" className="flex-1 text-center">{slide.button}</Text>
               <Icon name="arrowRight" size={24} />
             </PressableScale>
-            <GoogleButton onPress={() => router.push('/sign-up?provider=google')} />
+            <GoogleButton disabled={social.busy} onPress={() => void social.start('oauth_google')} />
+            {social.error ? <Text variant="caption" tone="danger" accessibilityRole="alert">{social.error}</Text> : null}
           </View>
         </View>
       </ScrollView>
